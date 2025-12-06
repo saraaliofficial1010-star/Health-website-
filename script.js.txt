@@ -1,0 +1,49 @@
+// Array of Health Tips
+const healthTips = [
+    "💧 Stay **hydrated**! Drink a glass of water first thing in the morning.",
+    "🍎 Eat the rainbow! Include a variety of colorful **fruits and vegetables** in your meals.",
+    "😴 Prioritize sleep. Aim for **7-9 hours** of quality rest each night.",
+    "🧘 Take 10 minutes a day for **mindfulness or meditation** to reduce stress.",
+    "💪 Move your body. Try to get at least **30 minutes of moderate exercise** most days.",
+    "☀️ Get some natural **sunlight** (safely) for a boost of Vitamin D.",
+    "🚶 Take the stairs instead of the elevator to sneak in extra **activity**.",
+    "📵 Set a **digital detox** time an hour before bed.",
+    "🥕 Swap sugary snacks for whole foods like **nuts or carrots**.",
+    "📚 **Learn something new**! Keeping your brain active is part of a healthy lifestyle."
+];
+
+// 1. Random Tip Functionality
+const tipButton = document.getElementById('randomTipButton');
+const tipDisplay = document.getElementById('tipDisplay');
+
+tipButton.addEventListener('click', () => {
+    // Get a random index from the healthTips array
+    const randomIndex = Math.floor(Math.random() * healthTips.length);
+    
+    // Display the random tip
+    tipDisplay.innerHTML = healthTips[randomIndex];
+});
+
+
+// 2. Contact Form Functionality
+const contactForm = document.getElementById('contactForm');
+const thankYouMessage = document.getElementById('thankYouMessage');
+
+contactForm.addEventListener('submit', function(event) {
+    // Prevent the default form submission behavior (which would reload the page)
+    event.preventDefault();
+
+    // In a real application, you would send the form data (name and email) to a server here.
+
+    // 1. Hide the form
+    contactForm.style.display = 'none';
+
+    // 2. Show the thank you message
+    thankYouMessage.style.display = 'block';
+
+    // Optional: Log the submission to the console
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    console.log(`Form Submitted: Name: ${name}, Email: ${email}`);
+});
+
